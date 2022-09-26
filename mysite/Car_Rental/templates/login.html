@@ -1,0 +1,11 @@
+
+
+
+<p> login </p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" min-lenght="1" maxlenght="50" required>
+    <input type="password" name="password" maxlenght="50" min-lenght="5" required>
+    <button type="submit">
+
+</form>

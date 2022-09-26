@@ -1,0 +1,13 @@
+
+
+
+<p> register </p>
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="username" min-lenght="1" maxlenght="50" required>
+  <input type="email" name="email" min-lenght="5" maxlenght="50" required>
+  <input type="password" name="password" min-lenght="5" maxlenght="50"  required>
+  <input type="password" name="password_2" min-lenght="5" maxlenght="50" required>
+  <button type="submit">
+
+</form>
