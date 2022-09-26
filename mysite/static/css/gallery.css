@@ -1,0 +1,154 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+    /* background-image: url('theme2.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; */
+    background-color: black;
+    margin: 0px;
+
+}
+
+#nav{
+
+    width: 100%;
+    height: 50px;
+    margin: 1% auto;
+
+    
+}
+
+.topnav {
+
+    background-color: red;
+    width: 80%;
+    left: 10%;
+    height: 50px;
+    position: absolute;
+    
+  }
+  
+.link_decorate{
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+  
+a:hover{
+
+    color: rgb(226, 27, 27);
+}
+  
+.home{
+    left: 0%;
+    display: block;
+    position: absolute;
+    bottom: -15px;
+}
+
+.logo{
+    left: 20%;
+    display: block;
+    position: absolute;
+    bottom: -15px;
+}
+
+.page_element_1{
+    left: 40%;
+    display: block;
+    position: absolute;
+} 
+
+
+.page_element_2{
+    left: 50%;
+    display: block;
+    position: absolute;
+} 
+
+.account_log{
+    left: 90%;
+    display: block;
+    position: absolute;
+    bottom: -15px;
+} 
+
+#wrapper{
+
+    width: 100%;
+    margin: 10px auto;
+    height: auto;
+}
+
+div {
+    display: block;
+}
+
+.menu{
+    width: 100%;
+    height: 200px;
+    font-family: 'Open Sans';
+    position: relative;
+    background-color: rgba(255, 0, 0, 0.555);
+    opacity: 82%;
+}
+
+/* .photos{
+    width: 100%;
+    height: 300px;
+    font-family: 'Open Sans';
+    position: relative;
+    background-color: white;
+    opacity: 82%;
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+/* .image{
+    background-color: blue;
+    height: 100px;
+    width: 500px;
+    margin: 10px;
+} */
+
+
+.image-grid{
+    --gap: 24px;
+    --num-cols: 4;
+    --row-height: 300px;
+  
+    box-sizing: border-box;
+    padding: var(--gap);
+  
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-auto-rows: var(--row-height);
+    gap: var(--gap);
+}
+  
+.image-grid > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.image-grid-col-2{
+    grid-column: span 2;
+}
+  
+.image-grid-row-2{
+    grid-row: span 2;
+}
+  
+  /* Anything udner 1024px */
+@media screen and (max-width: 1024px){
+    .image-grid {
+      --num-cols: 2;
+      --row-height: 200px;
+    }
+}
+  

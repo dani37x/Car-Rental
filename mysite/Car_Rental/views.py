@@ -30,7 +30,7 @@ def register(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
-        password = request.POST.get('password')
+        password = request.POST.get('password_1')
         password_2 = request.POST.get('password_2')
         if allowed_password(str(password), str(password_2)):
             try:
