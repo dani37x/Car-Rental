@@ -15,6 +15,12 @@ def home(request):
     # return redirect('password_change')
     return render(request,'home.html')
 
+
+def gallery(request):
+    # cars = Car.objects.all()
+    # data = {'cars':cars}
+    return render(request,'gallery.html')
+
 def car(request):
     cars = Car.objects.all()
     data = {'cars':cars}

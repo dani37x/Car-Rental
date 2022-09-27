@@ -1,13 +1,47 @@
+<!DOCTYPE html>
+<html  lang="pl">
 
+    {% load static %}
 
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}" media="screen">
+    </head>
+	<body>
+        <nav>
+            <div id="nav">
+                <div class="topnav">
+                    <a href="/" class="home link_decorate"><img src="{% static 'images/home_icon.png'%}"></a>
+                    <a href="#logo" class="logo link_decorate"> <img width="150px" height="150px"src="{% static 'images/sport_car.png'%}"></a>
+                    <a href="/gallery" class="page_element_1 link_decorate">Cars</a>
+                    <a href="/forum" class="page_element_2 link_decorate">Forum</a>
+                    <a href="/accounts/login/" class="account_log link_decorate"><img width="50px" height="50px"src="{% static 'images/user_icon.png'%}"></a>
 
-<p> register </p>
-<form method="POST">
-  {% csrf_token %}
-  <input type="text" name="username" min-lenght="1" maxlenght="50" required>
-  <input type="email" name="email" min-lenght="5" maxlenght="50" required>
-  <input type="password" name="password" min-lenght="5" maxlenght="50"  required>
-  <input type="password" name="password_2" min-lenght="5" maxlenght="50" required>
-  <button type="submit">
-
-</form>
+                </div>
+            </div>
+        </nav> 
+	<div id="wrapper">
+        <div class="card">
+            <span class="title">
+                <h5> Register </h5>
+            </span>
+            <form method="post" >
+                {% csrf_token %}
+                <span class="username_label"> Enter username</span> <br>
+                <input type="text" class="username" name="username">
+                <span class="email_label"> Enter your email</span>
+                <input type="email" class="email" name="email">
+                <span class="password_1_label"> Create new password </span>
+                <input type="password" class="password_1" name="password_1">
+                <span class="password_2_label"> Repeat your password </span>
+                <input type="password" class="password_2" name="password_2">
+                <span class="account"> Have you already account? <a href="/accounts/login">click here </a></span>
+                <input type="submit" class="button" value="sing in">
+            </form>
+        </div>
+    </div>
+	</body>
+</html>

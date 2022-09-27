@@ -14,14 +14,11 @@
         <nav>
             <div id="nav">
                 <div class="topnav">
-                    <a href="#home" class="home link_decorate">home</a>
-                    <!-- <a href="#home" class="home"><img src="home.png"></a> -->
-                    <a href="#logo" class="logo link_decorate"> logo</a>
-                    <!-- <a href="#logo" class="logo"> <img src="logo.png">logo</a> -->
-                    <a href="#home" class="account_log link_decorate">account</a>
-                    <!-- <a href="#home" class="account"><img src="account.png">account</a> -->
-                    <a href="#home" class="page_element_1 link_decorate">pg_element_1</a>
-                    <a href="#home" class="page_element_2 link_decorate">pg_element_2</a>
+                    <a href="/" class="home link_decorate"><img src="{% static 'images/home_icon.png'%}"></a>
+                    <a href="#logo" class="logo link_decorate"> <img width="150px" height="150px"src="{% static 'images/sport_car.png'%}"></a>
+                    <a href="/gallery" class="page_element_1 link_decorate">Cars</a>
+                    <a href="/forum" class="page_element_2 link_decorate">Forum</a>
+                    <a href="/accounts/register/" class="account_log link_decorate"><img width="50px" height="50px"src="{% static 'images/user_icon.png'%}"></a>
                 </div>
             </div>
         </nav>
@@ -35,7 +32,7 @@
                 <input type="email" class="email">
                 <span class="password_label"> Enter your password</span>
                 <input type="password" class="password">
-                <span class="account"> You dont have account yet? <a href=""> Click here </a></span>
+                <span class="account"> You don't have account yet? <a href="/accounts/register"> Click here </a></span>
                 <input type="submit" class="button" value="Login">
             </form>
         </div>

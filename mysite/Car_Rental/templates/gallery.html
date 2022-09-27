@@ -13,33 +13,31 @@
     <nav>
         <div id="nav">
             <div class="topnav">
-                <a href="#home" class="home link_decorate">home</a>
-                <!-- <a href="#home" class="home"><img src="home.png"></a> -->
-                <a href="#logo" class="logo link_decorate"> logo</a>
-                <!-- <a href="#logo" class="logo"> <img src="logo.png">logo</a> -->
-                <a href="#home" class="account_log link_decorate">account</a>
-                <!-- <a href="#home" class="account"><img src="account.png">account</a> -->
-                <a href="#home" class="page_element_1 link_decorate">pg_element_1</a>
-                <a href="#home" class="page_element_2 link_decorate">pg_element_2</a>
+                <a href="/" class="home link_decorate"><img src="{% static 'images/home_icon.png'%}"></a>
+                <a href="#logo" class="logo link_decorate"> <img width="150px" height="150px"src="{% static 'images/sport_car.png'%}"></a>
+                <a href="/gallery" class="page_element_1 link_decorate">Cars</a>
+                <a href="/forum" class="page_element_2 link_decorate">Forum</a>
+                <a href="/accounts/register/" class="account_log link_decorate"><img width="50px" height="50px"src="{% static 'images/user_icon.png'%}"></a>
+
             </div>
         </div>
     </nav> 
 	<div id="wrapper">
         <div class="menu">
 
+            <div class="image-grid">
+                <img class="image-grid-col-2 image-grid-row-2" src="bmw_3.jpg" >
+                <img src="mercedes_1.jpg">
+                <img src="mercedes_2.jpg">
+                <img src="bmw_1.jpg">
+                <img src="bmw_2.jpg">
+                <img class="image-grid-col-2 image-grid-row-2" src="audi_1.jpg">
+                <img src="land_rower_1.jpg">
+                <img src="mercedes_3.jpg">
+                <img src="ford_1.jpg">
+                <img src="car_1.jpg">
+            </div>
         </div>
-        <div class="image-grid">
-            <img class="image-grid-col-2 image-grid-row-2" src="bmw_3.jpg" >
-            <img src="mercedes_1.jpg">
-            <img src="mercedes_2.jpg">
-            <img src="bmw_1.jpg">
-            <img src="bmw_2.jpg">
-            <img class="image-grid-col-2 image-grid-row-2" src="audi_1.jpg">
-            <img src="land_rower_1.jpg">
-            <img src="mercedes_3.jpg">
-            <img src="ford_1.jpg">
-            <img src="car_1.jpg">
-          </div>
     </div>
 	</body>
 </html>
