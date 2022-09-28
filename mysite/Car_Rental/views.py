@@ -17,9 +17,9 @@ def home(request):
 
 
 def gallery(request):
-    # cars = Car.objects.all()
-    # data = {'cars':cars}
-    return render(request,'gallery.html')
+    cars = Car.objects.all()
+    data = {'cars':cars}
+    return render(request, 'gallery.html', data)
 
 def car(request):
     cars = Car.objects.all()

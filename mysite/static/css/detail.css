@@ -1,26 +1,28 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
 body {
-    background-image: url('../images/theme2.jpg'); 
+    /* background-image: url('theme2.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center center; */
+    background-color:#181819;
+    margin: 0px;
 
 }
+
 #nav{
 
     width: 100%;
     height: 50px;
-    margin: 2% auto;
-    /* overflow: hidden; */
-    /* position: fixed; */
+    margin: 3% auto;
+    padding: 10px;
+
     
 }
 
 .topnav {
 
-    background-color:  none;
-    /* position: relative; */
+    background-color: none;
     width: 80%;
     left: 10%;
     height: 50px;
@@ -42,6 +44,7 @@ a:hover{
     color: rgb(226, 27, 27);
 }
   
+
 .home{
     left: 90%;
     display: block;
@@ -105,82 +108,60 @@ a:hover{
     padding: 5px;
 } 
 
+
+
+
 #wrapper{
 
-    width: 500px;
-    margin: 150px auto;
-    height: 500px;
+    width: 100%;
+    margin: 10px auto;
+    height: auto;
 }
 
 div {
     display: block;
 }
 
-.card{
-    width: 500px;
-    height: 300px;
+.menu{
+    width: 100%;
+    height: 500px;
     font-family: 'Open Sans';
     position: relative;
-    background-color: #181819;
+    top: 100px;
+    background-color: white;
     opacity: 82%;
 }
 
-.title{
-    width: 400px;
+
+.name{
+    width: 100%;
+    height:80px;
+    font-family: 'Open Sans';
     position: absolute;
-    left: 47px;
-    top: -40px;
+    color: rgb(226, 27, 27);
     text-align: center;
-    font-size: 45px;
-    color: white;
+} 
 
-}
-
-.email_label{
-    width: 400px;
-    height: 55px;
+.image{
+    background-color: blue;
+    top: 62px;
+    height: 300px;
+    width: 500px;
+    margin: 18px;
+    object-fit: cover;
     position: absolute;
-    left: 50px;
-    top: 100px;
-    font-size: 19px;
-    text-align: left;
-    color:red;
-
-}
-
-.email{
-    width: 400px;
-    height: 55px;
-    background: rgb(41, 41, 41);
-    position: absolute;
-    left: 50px;
-    top: 130px;
     border-radius: 10px;
-    border: none;
-    background-color: aliceblue;
-    font-size: 19px;
-    text-align: center;
 }
 
-
-.button{
-    width: 100px;
-    height: 50px;
+.right_side{
+    width: 45%;
+    height:300px;
+    font-family: 'Open Sans';
     position: absolute;
-    left: 200px;
-    top: 210px;
-    border: 1px;
-    border-radius: 10px;
-    background-color: red;
-    font-weight: 600;
-}
-
-/* form {
-    background-color: aliceblue;
+    background-color: rgb(226, 27, 27);
     text-align: center;
-} */
-
-a{
-    color:white;
-    text-decoration: none;
+    left: 50%;
+    top: 80px;
+    
 }
+

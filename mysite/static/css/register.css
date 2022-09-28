@@ -71,7 +71,7 @@ a:hover{
     font-size: 25px;
     width: 70px;
     height: 30px;
-    background-color: black;
+    background-color: #181819;
     text-align: center;
     border-radius: 5px;
     color: aliceblue;
@@ -86,7 +86,7 @@ a:hover{
     font-size: 25px;
     width: 70px;
     height: 30px;
-    background-color: black;
+    background-color: #181819;
     text-align: center;
     border-radius: 5px;
     color: aliceblue;
@@ -121,7 +121,7 @@ div {
     height: 600px;
     font-family: 'Open Sans';
     position: relative;
-    background-color: black;
+    background-color: #181819;
     opacity: 82%;
 }
 

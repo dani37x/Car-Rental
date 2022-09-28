@@ -24,18 +24,18 @@
     </nav> 
 	<div id="wrapper">
         <div class="menu">
-
-            <div class="image-grid">
-                <img class="image-grid-col-2 image-grid-row-2" src="bmw_3.jpg" >
-                <img src="mercedes_1.jpg">
-                <img src="mercedes_2.jpg">
-                <img src="bmw_1.jpg">
-                <img src="bmw_2.jpg">
-                <img class="image-grid-col-2 image-grid-row-2" src="audi_1.jpg">
-                <img src="land_rower_1.jpg">
-                <img src="mercedes_3.jpg">
-                <img src="ford_1.jpg">
-                <img src="car_1.jpg">
+            <div class="photos">
+                {% for car in cars %}
+                    {% if forloop.first  %}
+                        <a href="/detail/{{car.id}}">  
+                            <img class="image" src="../static{{car.photo.url}}">
+                        </a>    
+                    {% else %}
+                        <a href="/detail/{{car.id}}"> 
+                            <img src="../static{{car.photo.url}}" class="image">
+                        </a>
+                    {% endif %}
+            {%  endfor %}
             </div>
         </div>
     </div>

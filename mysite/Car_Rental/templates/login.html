@@ -27,7 +27,8 @@
             <span class="title">
                 <h5> Login </h5>
             </span>
-            <form method="post" action=''>
+            <form method="post">
+                {% csrf_token %}
                 <span class="email_label"> Enter your e-mail address</span> <br>
                 <input type="email" class="email">
                 <span class="password_label"> Enter your password</span>
