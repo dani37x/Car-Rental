@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
+from django.conf.urls import handler404, handler500
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -15,3 +16,8 @@ urlpatterns = [
     path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name="password_reset_confirm"),
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name="password_reset_complete"),
 ]
+
+handler404 = views.error_404
+handler500 = views.error_500
+
+

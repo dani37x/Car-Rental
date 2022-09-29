@@ -6,7 +6,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from .functions import random_pass, allowed_password
-from .models import Car, Details
+from .models import Car, Details, User_profile
+from datetime import date
 # Create your views here.
 
 
@@ -27,8 +28,21 @@ def car(request):
     return render(request,'car.html', data)
 
 def detail(request, id):
-    detail_data = Details.objects.get(pk=id)
-    data = {'detail_data':detail_data}
+    details = Details.objects.get(pk=id)
+    cars = Car.objects.get(pk=id)
+    data = {'details':details, 'cars':cars}
+    if request.method == 'POST':
+        date_from = request.POST.get('date_from')
+        date_to = request.POST.get('date_to')
+        today = date.today()
+        today = today.strftime("%y-%m-%d")
+        if today > date_from or today > date_to or date_from > date_to:
+            print('wrong choose')
+            return redirect('detail', id = details.id)
+        print(today)
+        if date_from != '' and date_to != '':
+            print('choose dates')
+            return redirect('detail', id = details.id)
     return render(request,'detail.html', data)
 
 
@@ -48,6 +62,9 @@ def register(request):
             if username_db == None and email_db == None:
                 User.objects.create_user(username, email, password)
                 print('created')
+                account = User.objects.get(username=username)
+                user_profile = User_profile(user=account)
+                user_profile.save()
                 return redirect('log_to_account')
             else:
                 print('username or email already exists in our database')
@@ -72,6 +89,13 @@ def logout_view(request):
     return redirect('log_to_account')
 
 
+def error_404(request, exception):
+   context = {}
+   return render(request,'404.html', context)
+
+def error_500(request):
+    context = {}
+    return render(request,'500.html', context)
 
 # def forgot_password(request):
 #     if request.method == 'POST':

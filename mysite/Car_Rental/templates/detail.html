@@ -25,12 +25,31 @@
 	<div id="wrapper">
         <div class="menu">
             <div class="name">
-                <h1> siema</h1>
+                <h1> {{cars.name}}</h1>
             </div>
-
-            <img class="image" src="{% static 'images/ford_1.jpg' %}">
+            <img class="image" src="../../static{{cars.photo.url}}">
+            <div class="under_image_left">
+                <br>
+                {{details.model}}
+            </div>
+            <div class="under_image_right">
+                <br>
+                {{details.car_type}}
+            </div>
             <div class="right_side">
-                
+                <p class="description"> {{details.description}}</p>
+            </div>
+            <div class="forms">
+                <form method="post">
+                    {% csrf_token %}
+                    <span class="date_from_label">From </span>
+                    <input type="date" class="date_from" name="date_from">
+                    <br>
+                    <br>
+                    <span class="date_to_label">To </span>
+                    <input type="date" class="date_to" name="date_to">
+                    <input type="submit" class="submit" value="RENT NOW">
+                </form>
             </div>
         </div>
     </div>
@@ -39,4 +58,3 @@
 
 
 
-<!-- {{detail_data.model}} -->
