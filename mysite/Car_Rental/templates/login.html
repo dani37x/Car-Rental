@@ -29,11 +29,12 @@
             </span>
             <form method="post">
                 {% csrf_token %}
-                <span class="email_label"> Enter your e-mail address</span> <br>
-                <input type="email" class="email">
+                <span class="username_label"> Enter your username</span> <br>
+                <input type="text" class="username" name="username">
                 <span class="password_label"> Enter your password</span>
-                <input type="password" class="password">
+                <input type="password" class="password" name="password">
                 <span class="account"> You don't have account yet? <a href="/accounts/register"> Click here </a></span>
+                <span class="remember"> You don't remember password?<a href="/accounts/password_reset"> Click here </a></span>
                 <input type="submit" class="button" value="Login">
             </form>
         </div>

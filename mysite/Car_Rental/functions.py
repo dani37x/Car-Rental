@@ -1,5 +1,6 @@
 import random
 import string
+from datetime import datetime
 
 def random_pass():
     small = string.ascii_lowercase
@@ -49,3 +50,9 @@ def allowed_password(password, password_2):
     
         
 # allowed_password(password='hej^K55' , password_2='hej^K55')
+
+
+def days(date_from, date_to):
+    date_from = datetime.strptime(date_from, "%Y-%m-%d")
+    date_to = datetime.strptime(date_to, "%Y-%m-%d")
+    return int((date_from-date_to).days)

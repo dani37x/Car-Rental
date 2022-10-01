@@ -1,4 +1,54 @@
+<!DOCTYPE html>
+<html  lang="pl">
+    <head>
 
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}" media="screen">
+    </head>
+	<body>
+        <nav>
+            <div id="nav">
+                <div class="topnav">
+                    <a href="/" class="home link_decorate"><img src="{% static 'images/home_icon.png'%}"></a>
+                    <a href="#logo" class="logo link_decorate"> <img width="100px" height="100px"src="{% static 'images/sport_car.png'%}"></a>
+                    <a href="/gallery" class="page_element_1 link_decorate">Cars</a>
+                    <a href="/forum" class="page_element_2 link_decorate">Forum</a>
+                    <a href="/accounts/register/" class="account_log link_decorate"><img width="50px" height="50px"src="{% static 'images/user_icon.png'%}"></a>
+                </div>
+            </div>
+        </nav>
+	<div id="wrapper">
+        <div class="card">
+            <video autoplay muted loop class="video">
+                <source src="{% static 'images/video_1.mp4' %}" type="video/mp4">
+            </video>
+            <div class="string_1">
+                <span class="span_1"> RENT BEST CAR HERE.</span>
+            </div>
+            <div class="string_2">
+                <a class="span_2" href="/gallery/"> SEE CARS</a>
+            </div>
+        </div>
+        <div class="card_2">
+            <div class="left_down">
+    
+                <p class="about_us"> Our knowledge</p>
 
+                <p class="xd"> Uważamy, że każdy powinien mieć niezapomniane wrażenia z wypożyczenia samochodu. Z tego powodu wybraliśmy dostawców, którzy są przyjaźni i pomocni, cieszą się renomą i posiadają dogłębną wiedzę lokalną, aby zapewnić Ci jak najlepsze korzystanie z wynajmuUważamy, że każdy powinien mieć niezapomniane wrażenia z wypożyczenia samochodu. Z tego powodu wybraliśmy dostawców, którzy są przyjaźni i pomocni, cieszą się renomą i posiadają dogłębną wiedzę lokalną, aby zapewnić Ci jak najlepsze korzystanie z wynajmu</p>
+            </div>
+            <div class="right_down">
+    
+                <p class="about_us"> WHY WE?</p>
 
-<p> home</p>
+                <p class="xd"> Naszą misją jest pomaganie ludziom w wyborze odpowiedniego wynajmu. Przed dokonaniem rezerwacji pokażemy Ci wszystko, co musisz wiedzieć. Na podstawie poprzednich ocen klientów, zawartości zawartej w pakiecie i informacji o odbiorze podajemy wszystkie fakty, abyś mógł dokonać właściwego wyboru wynajmu.Mamy dostęp do ekskluzywnych ofert w najniższych cenach i bezpłatnych dodatków. Dzięki naszej inteligentnej wyszukiwarce rezerwacji te oszczędności z pewnością trafią do Ciebie!</p>
+            </div>
+
+    
+        </div>
+    </div>
+	</body>
+</html>

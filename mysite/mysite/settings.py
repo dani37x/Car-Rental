@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-d$kr4t!c*w&bf@#+s!pwudt*%zx@$5k7iz&7j0-4w+-^#73!m$
 DEBUG = True
 # ALLOWED_HOSTS = ['127.0.0.1']
 
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 # Application definition
 

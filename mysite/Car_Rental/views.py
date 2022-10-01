@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate, logout
@@ -5,17 +6,24 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-from .functions import random_pass, allowed_password
+from .functions import random_pass, allowed_password, days
 from .models import Car, Details, User_profile
 from datetime import date
 # Create your views here.
 
 
-@login_required(login_url='accounts/login/')
+# @login_required(login_url='accounts/login/')
 def home(request):
     # return redirect('password_change')
     return render(request,'home.html')
 
+
+@login_required(login_url='/accounts/login/')
+def account(request):
+    account = User.objects.get( username = request.user.username)
+    data = {'account' : account}
+    print(account)
+    return render(request,'account.html', data)
 
 def gallery(request):
     cars = Car.objects.all()
@@ -35,14 +43,23 @@ def detail(request, id):
         date_from = request.POST.get('date_from')
         date_to = request.POST.get('date_to')
         today = date.today()
-        today = today.strftime("%y-%m-%d")
+        today = today.strftime("%Y-%m-%d")
+        # if details.availability == False:
+        #   return False
+        # print('today', today)
+        # print('date_from', date_from)
+        # print('date_to',date_to)
+        # print(today > date_from)
+        # print(today > date_to)
+        # print(date_from > date_to)
+        if date_from == '' and date_to == '':
+            print('choose dates')
+            return redirect('detail', id = details.id)
         if today > date_from or today > date_to or date_from > date_to:
             print('wrong choose')
             return redirect('detail', id = details.id)
-        print(today)
-        if date_from != '' and date_to != '':
-            print('choose dates')
-            return redirect('detail', id = details.id)
+        price = days(date_to=date_from, date_from=date_to) * details.price_day
+        print(price)
     return render(request,'detail.html', data)
 
 
@@ -78,9 +95,11 @@ def log_to_account(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        print(username, password)
         user = authenticate(username=username, password=password)
         login(request, user)
-        return redirect('home')
+        print('goood log')
+        return redirect('account')
     return render(request,'login.html')
 
 
