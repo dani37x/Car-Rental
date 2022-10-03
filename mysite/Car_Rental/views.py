@@ -1,20 +1,22 @@
-from unicodedata import name
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail
-from .functions import random_pass, allowed_password, days
-from .models import Car, Details, User_profile
-from datetime import date
+from .functions import random_pass, allowed_password, days, database
+from .models import Car, Details, User_profile, Car_availability
+from datetime import date, datetime
 # Create your views here.
 
 
 # @login_required(login_url='accounts/login/')
 def home(request):
-    # return redirect('password_change')
+    # database(first_day=1, last_day=31, month=10)
+    # cars = Car.objects.get(pk=1)
+    # car_name =  cars.name
+    # availability = Car_availability.objects.filter(car__name=car_name)
+    # for i in availability:
+    #     print(i.car)
     return render(request,'home.html')
 
 
@@ -35,6 +37,7 @@ def car(request):
     data = {'cars':cars}
     return render(request,'car.html', data)
 
+@login_required(login_url='/accounts/login/')
 def detail(request, id):
     details = Details.objects.get(pk=id)
     cars = Car.objects.get(pk=id)
@@ -44,22 +47,40 @@ def detail(request, id):
         date_to = request.POST.get('date_to')
         today = date.today()
         today = today.strftime("%Y-%m-%d")
-        # if details.availability == False:
+        # if Car_availability.availability == False:
         #   return False
-        # print('today', today)
-        # print('date_from', date_from)
-        # print('date_to',date_to)
-        # print(today > date_from)
-        # print(today > date_to)
-        # print(date_from > date_to)
         if date_from == '' and date_to == '':
             print('choose dates')
             return redirect('detail', id = details.id)
         if today > date_from or today > date_to or date_from > date_to:
             print('wrong choose')
             return redirect('detail', id = details.id)
-        price = days(date_to=date_from, date_from=date_to) * details.price_day
+
+        days_difference = days( date_from=date_from, date_to=date_to)
+        start_date = int(date_from[-2:])
+        end_date = int(date_to[-2:])
+        counter = 0
+        for day in range( start_date, end_date+1):
+            cars_access = Car_availability.objects.filter(car__name=cars.name)
+            for row in cars_access:
+                move_date = datetime.strptime(f'2022-10-{day}', "%Y-%m-%d").date()
+                if move_date == row.date and row.availability == True:
+                    counter += 1
+                print(counter, move_date, row.date)
+            if counter == days_difference:
+                print('CAR IS AVAILABLE!')
+                break
+        if counter != days_difference:
+            print('SORRY CAR  IS NOW AVAILABLE')
+            return redirect('detail', id = details.id)
+        price = days(date_to=date_from, date_from=date_to) * details.price_for_day*(-1)
         print(price)
+        account = User.objects.get( username = request.user.username)
+        account = User_profile.objects.get( user = account)
+        if account.money < price:
+            print('Sorry, you dont have enough money')
+            return redirect('detail', id = details.id)
+        
     return render(request,'detail.html', data)
 
 

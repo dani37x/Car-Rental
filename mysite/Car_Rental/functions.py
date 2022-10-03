@@ -1,6 +1,9 @@
 import random
 import string
-from datetime import datetime
+from datetime import date, datetime
+from .models import Car_availability, Car
+from django.contrib.auth.models import User
+
 
 def random_pass():
     small = string.ascii_lowercase
@@ -55,4 +58,14 @@ def allowed_password(password, password_2):
 def days(date_from, date_to):
     date_from = datetime.strptime(date_from, "%Y-%m-%d")
     date_to = datetime.strptime(date_to, "%Y-%m-%d")
-    return int((date_from-date_to).days)
+    return int(( date_to-date_from).days)
+
+
+def database(first_day, last_day, month):
+    car = Car.objects.get()
+    user = User.objects.get()
+    # for car in cars:
+        # print('        ',car.name)
+    for day in range(first_day,last_day+1):
+        new_row = Car_availability(car=car, date=f'2022-{month}-{day}', owner=user)
+        new_row.save()

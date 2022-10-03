@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -5,7 +6,6 @@ class Car(models.Model):
     name = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     photo = models.ImageField()
-    owner = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return self.name
@@ -19,8 +19,8 @@ class Details(models.Model):
     model = models.CharField(max_length=100)
     car_type = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
-    availability = models.BooleanField()
-    price_day = models.IntegerField(default=100)
+    price_for_day = models.IntegerField(default=100)
+
     
     def __str__(self):
         return self.model
@@ -28,6 +28,20 @@ class Details(models.Model):
     class Meta:
         verbose_name = 'Details'
         verbose_name_plural = 'Details'
+
+
+class Car_availability(models.Model):
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    date = models.DateField()
+    availability = models.BooleanField(default=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+
+    def __str__(self):
+        return str(self.car)
+
+    class Meta:
+        verbose_name = 'Car_availability'
+        verbose_name_plural = 'Car_availability'
 
 
 class User_profile(models.Model):
@@ -41,15 +55,3 @@ class User_profile(models.Model):
         verbose_name = 'User profile'
         verbose_name_plural = 'User profile'
 
-
-
-# class Car_availability(models.Model):
-#      = models.OneToOneField(Details, on_delete=models.CASCADE)
-#     money = models.IntegerField(default=0)
-
-#     def __str__(self):
-#         return str(self.user) + ' account'
-
-#     class Meta:
-#         verbose_name = 'User profile'
-#         verbose_name_plural = 'User profile'

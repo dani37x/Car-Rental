@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  lang="pl">
     <head>
-
+        
         {% load static %}
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,14 +48,16 @@
                     <br>
                     <span class="date_to_label">To </span>
                     <input type="date" class="date_to" name="date_to">
-                    {% if details.availability %}
-                        <input type="submit" class="submit" value="RENT NOW">
-                    {% else %}
-                        <input type="submit" class="submit_not" value="RENTED" disabled>
-                    {% endif %}
+                    <input type="submit" class="submit" value="RENT NOW">
+                    <!-- {% if availability.availability %} -->
+                        
+                    <!-- {% else %} -->
+                        <!-- <input type="submit" class="submit_not" value="RENTED" disabled> -->
+                    <!-- {% endif %} -->
                 </form>
             </div>
         </div>
+        
     </div>
 	</body>
 </html>
