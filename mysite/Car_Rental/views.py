@@ -3,10 +3,9 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
-from .functions import random_pass, allowed_password, days, database
+from .functions import random_pass, allowed_password, days, database, dates, dates_to_rent
 from .models import Car, Details, User_profile, Car_availability
 from datetime import date, datetime
-# Create your views here.
 
 
 # @login_required(login_url='accounts/login/')
@@ -22,8 +21,10 @@ def home(request):
 
 @login_required(login_url='/accounts/login/')
 def account(request):
-    account = User.objects.get( username = request.user.username)
-    data = {'account' : account}
+    user = User.objects.get( username = request.user.username)
+    user_account = User_profile.objects.get( user = user)
+    rented_cars = Car_availability.objects.filter( owner = user)
+    data = {'user' : user, 'user_account': user_account, 'rented_cars': rented_cars}
     print(account)
     return render(request,'account.html', data)
 
@@ -41,21 +42,15 @@ def car(request):
 def detail(request, id):
     details = Details.objects.get(pk=id)
     cars = Car.objects.get(pk=id)
-    data = {'details':details, 'cars':cars}
+    available_dates = dates_to_rent(id=id) 
+    data = {'details':details, 'cars':cars, 'available_dates':available_dates}
     if request.method == 'POST':
         date_from = request.POST.get('date_from')
         date_to = request.POST.get('date_to')
         today = date.today()
         today = today.strftime("%Y-%m-%d")
-        # if Car_availability.availability == False:
-        #   return False
-        if date_from == '' and date_to == '':
-            print('choose dates')
+        if dates(date_from=date_from, date_to=date_to, today=today) == False:
             return redirect('detail', id = details.id)
-        if today > date_from or today > date_to or date_from > date_to:
-            print('wrong choose')
-            return redirect('detail', id = details.id)
-
         days_difference = days( date_from=date_from, date_to=date_to)
         start_date = int(date_from[-2:])
         end_date = int(date_to[-2:])
@@ -66,20 +61,32 @@ def detail(request, id):
                 move_date = datetime.strptime(f'2022-10-{day}', "%Y-%m-%d").date()
                 if move_date == row.date and row.availability == True:
                     counter += 1
-                print(counter, move_date, row.date)
             if counter == days_difference:
                 print('CAR IS AVAILABLE!')
-                break
-        if counter != days_difference:
+        if counter != days_difference:          
             print('SORRY CAR  IS NOW AVAILABLE')
             return redirect('detail', id = details.id)
-        price = days(date_to=date_from, date_from=date_to) * details.price_for_day*(-1)
+        price = days(date_to=date_from, date_from=date_to) * details.price_for_day*(-1) + details.price_for_day*2
         print(price)
-        account = User.objects.get( username = request.user.username)
-        account = User_profile.objects.get( user = account)
+        profile = User.objects.get( username = request.user.username)
+        account = User_profile.objects.get( user = profile)
         if account.money < price:
             print('Sorry, you dont have enough money')
             return redirect('detail', id = details.id)
+        else:
+            for day in range( start_date, end_date+1):
+                cars_access = Car_availability.objects.filter(car__name=cars.name)
+                for row in cars_access:
+                    move_date = datetime.strptime(f'2022-10-{day}', "%Y-%m-%d").date()
+                    if move_date == row.date and row.availability == True:
+                        row.car = row.car
+                        row.date = move_date
+                        row.availability = False
+                        row.owner = profile
+                        row.save()
+        account.money = account.money - price
+        account.save()
+        print('YAY YOU RENTED A CAR!')
         
     return render(request,'detail.html', data)
 
@@ -151,8 +158,3 @@ def error_500(request):
 #         send_mail('Password', 'This is new password: '+ str(password), 'appmail@sendto.com', [email] )
 #         return redirect('check_code', password=password)
 #     return render (request, 'forgot_password.html')
-
-
-
-# def check_code(request, password):
-#     return render(request,'check_code.html', password)

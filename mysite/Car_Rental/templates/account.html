@@ -1,5 +1,48 @@
+<!DOCTYPE html>
+<html  lang="pl">
+    <head>
 
+        {% load static %}
 
-<p>{{ request.user.username }}</p>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="keywords" content="portfolio">
+        <meta name="description" content="">
+        <link rel="stylesheet" href="{% static 'css/account.css' %}" media="screen">
+    </head>
+	<body>
+	<div id="wrapper">
+        <div class="left">
+            <span class="welcome"> Hey <span class="user">{{user.username}},</span></span>
+            <div class="balance">
+                <span class="money">{{user_account.money}}</span>
+                <img src="{% static 'images/money.png'%}" class="money_icon" width="50px" height="50px">
+            </div>
+                <div class="add_credits">
+                    <span class="plus"> +</span>
+                </div>
+                <div class="link_1">
+                    <a href="/"> <img src="{% static 'images/home_icon.png'%}" class="img_1" width="50px" height="50px"> </a>
+                </div>
+                <div class="link_2">
+                    <a href="/gallery"><span class="gallery_link">GALLERY </span> </a>
+                </div>
+                <div class="link_3">
+                    <a href=""><span class="link_span">CONTACT </span> </a>
+                </div>
+                <div class="link_4">
+                    <a href="/accounts/password_reset/"><span class="link_span_long">SET PASSWORD </span> </a>
+                </div>
+                <div class="link_5">
+                    <a href="/accounts/logout/"><span class="link_span" style="color:#181819">LOGOUT </span> </a>
+                </div>
+        </div>
+        <div class="right">
+            <span class="products"> your products...</span>
+            <div class="gallery">
 
-{{account.username}}
+            </div>
+        </div>
+    </div>
+	</body>
+</html>

@@ -17,7 +17,7 @@
                 <a href="#logo" class="logo link_decorate"> <img width="150px" height="150px"src="{% static 'images/sport_car.png'%}"></a>
                 <a href="/gallery" class="page_element_1 link_decorate">Cars</a>
                 <a href="/forum" class="page_element_2 link_decorate">Forum</a>
-                <a href="/accounts/register/" class="account_log link_decorate"><img width="50px" height="50px"src="{% static 'images/user_icon.png'%}"></a>
+                <a href="/account" class="account_log link_decorate"><img width="50px" height="50px"src="{% static 'images/user_icon.png'%}"></a>
 
             </div>
         </div>
@@ -32,9 +32,13 @@
                 <br>
                 {{details.model}}
             </div>
-            <div class="under_image_right">
+            <div class="under_image_middle">
                 <br>
                 {{details.car_type}}
+            </div>
+            <div class="under_image_right">
+                <br>
+                {{details.price_for_day}}$/day
             </div>
             <div class="right_side">
                 <p class="description"> {{details.description}}</p>
@@ -48,6 +52,12 @@
                     <br>
                     <span class="date_to_label">To </span>
                     <input type="date" class="date_to" name="date_to">
+                    <select class="available_dates" size="1">
+                        <option> AVAILABLE DATES</option>
+                        {% for key, value in available_dates.items %}
+                            <option> {{ value }}</option>
+                        {% endfor %}
+                    </select>
                     <input type="submit" class="submit" value="RENT NOW">
                     <!-- {% if availability.availability %} -->
                         

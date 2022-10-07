@@ -1,0 +1,252 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+    background-image: url('../images/account_background.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#wrapper{
+
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div {
+    display: block;
+}
+
+.left{
+    width: 35%;
+    height: 500px;
+    position: relative;
+    background-color: #181819;
+    border-radius: 15%;
+}
+
+.welcome{
+    position: absolute;
+    top: 5%;
+    left: 21%;
+    color: rgb(226, 27, 27);
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.products{
+    position: absolute;
+    top: 0%;
+    left: 11%;
+    color: rgb(226, 27, 27);
+    font-size: 40px;
+    text-align: center;
+}
+
+.user{
+
+    position: absolute;
+    top: 2%;
+    left: 115%;
+    color: aliceblue;
+    font-size: 50px;
+    text-align: center;
+}
+
+.home{
+    background-color: aliceblue;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+
+}
+.add_credits{
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    background-color: rgb(204, 20, 20);
+    border-radius: 10px;
+    width: 20%;
+    height: 10%;
+}
+
+.plus{
+    position: absolute;
+    left: 25%;
+    top: -28%;
+    color: white;
+    font-size: 70px;
+}
+.balance{
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    background-color:none;
+    border:  1px solid aliceblue;
+    border-radius: 10px;
+    width: 60%;
+    height: 10%;
+
+}
+
+
+.money{
+    position: absolute;
+    left: 25%;
+    top: -10%;
+    color: aliceblue;
+    font-size: 45px;
+    text-align: center;
+    
+}
+
+.money_icon{
+    position: absolute;
+    right: 10%;
+    top: 1%;
+    
+}
+
+.link_1{
+    position: absolute;
+    left:  5%;
+    top: 35%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    width: 20%;
+    height: 10%;
+}
+
+.img_1{
+    position: absolute;
+    left:  20%;
+    top: 0%;
+}
+
+.link_2{
+    position: absolute;
+    right:  10%;
+    top: 35%;
+    background-color:rgb(204, 20, 20);
+    border-radius: 10px;
+    width: 60%;
+    height: 10%;
+}
+
+.gallery_link{
+    position: absolute;
+    color: aliceblue;
+    top: 15%;
+    left: 20%;
+    font-size: 30px;
+}
+
+
+.link_3{
+    position: absolute;
+    right:  10%;
+    top: 50%;
+    background-color:rgb(204, 20, 20);
+    border-radius: 10px;
+    width: 85%;
+    height: 10%;
+}
+
+.link_4{
+    position: absolute;
+    right:  10%;
+    top: 65%;
+    background-color:none;
+    border: 1px solid aliceblue;
+    border-radius: 10px;
+    width: 85%;
+    height: 10%;
+}
+
+.link_5{
+    position: absolute;
+    right:  10%;
+    top: 80%;
+    background-color:aliceblue;
+    border-radius: 10px;
+    width: 85%;
+    height: 10%;
+}
+.link_span{
+    position: absolute;
+    color: aliceblue;
+    top: 15%;
+    left: 30%;
+    font-size: 30px;
+    /* width: 100%;
+    height: 100%;
+    background-color: antiquewhite; */
+}
+.link_span_long{
+    position: absolute;
+    color: aliceblue;
+    left: 18%;
+    top: 15%;
+    font-size: 30px;
+}
+.right{
+    left: 5%;
+    width: 60%;
+    height: 500px;
+    position: relative;
+    background-color: #181819;
+    border-radius: 15%;
+}
+
+.gallery{
+    top: 22%;
+    left: 10%;
+    width: 80%;
+    height: 300px;
+    position: absolute;
+    overflow: scroll;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+
+}
+
+
+.gallery > img{
+    width: 99%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* .date_to{
+    position: relative;
+    font-size: 20px;
+    color: white;
+    right: 10%;
+    top:40%;
+
+} */
+
+
+
+.gallery::-webkit-scrollbar {
+    width: 16px;
+}
+  
+.gallery::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+  
+.gallery::-webkit-scrollbar-thumb {
+    background-color: rgb(226, 27, 27);
+    border-radius: 100px;
+}
+
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+}

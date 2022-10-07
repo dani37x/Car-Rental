@@ -122,7 +122,7 @@ div {
 
 .card{
     width: 500px;
-    height: 400px;
+    height: 440px;
     font-family: 'Open Sans';
     position: relative;
     background-color: #181819;
@@ -140,7 +140,7 @@ div {
 
 }
 
-.email_label{
+.username_label{
     width: 400px;
     height: 55px;
     position: absolute;
@@ -152,7 +152,7 @@ div {
 
 }
 
-.email{
+.username{
     width: 400px;
     height: 55px;
     background: rgb(41, 41, 41);
@@ -197,10 +197,23 @@ div {
     height: 55px;
     position: absolute;
     top: 290px;
-    font-size: 16px;
-    text-align: center;
+    font-size: 18px;
+    text-align: left;
     color:red;
+    left: 50px;
 
+}
+
+
+.remember{
+    width: 500px;
+    height: 55px;
+    position:absolute;
+    top: 320px;
+    font-size: 18px;
+    text-align: left;
+    color:red;
+    left: 50px;
 }
 
 .button{
@@ -208,7 +221,7 @@ div {
     height: 50px;
     position: absolute;
     left: 200px;
-    top: 320px;
+    top: 365px;
     border: 1px;
     border-radius: 10px;
     background-color: red;
