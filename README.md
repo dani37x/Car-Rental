@@ -15,7 +15,9 @@ Ultimately web is going to contain:
 - user account balance with products
 - adequate password's system for 2022 year
 - generating individual page for every car
+- 
 *not yet:*
+
 - message board with opinions
 - flashing importing messagess
 - payments with recharging users accounts
