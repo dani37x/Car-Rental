@@ -42,7 +42,7 @@ a{
   
 a:hover{
 
-    color: rgb(226, 27, 27);
+    color:	#B22222;
 }
   
 .home{
@@ -144,7 +144,7 @@ div {
     left: 5%;
     height: 150px;
     top: 160px;
-    background-color: rgb(226, 27, 27);
+    background-color:	#B22222;
     position: absolute;
     border-radius: 20px 0  0 20px;
     
@@ -182,7 +182,7 @@ div {
     font-size: 27px;
     font-weight: 800;
     position: absolute;
-    background-color: rgb(226, 27, 27);
+    background-color: 	#B22222;
     border-radius: 10px;
 }
 
@@ -226,7 +226,7 @@ div {
     text-align: center;
     font-size: 25px;
     font-weight: 800;
-    color: rgb(226, 27, 27);
+    color: #B22222;
 }
 
 .xd{

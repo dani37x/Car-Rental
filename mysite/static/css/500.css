@@ -40,7 +40,7 @@ body {
   
 a:hover{
 
-    color: rgb(226, 27, 27);
+    color:	#B22222;
 }
   
 .home{
@@ -122,7 +122,7 @@ div {
     height: 300px;
     font-family: 'Open Sans';
     position: relative;
-    background-color: rgba(255, 0, 0, 0.555);
+    background-color: 	#B22222;
     opacity: 82%;
 }
 

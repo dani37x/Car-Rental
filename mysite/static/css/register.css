@@ -40,7 +40,7 @@ body {
   
 a:hover{
 
-    color: rgb(226, 27, 27);
+    color:#B22222;
 }
   
 .home{
@@ -122,7 +122,7 @@ div {
     font-family: 'Open Sans';
     position: relative;
     background-color: #181819;
-    opacity: 82%;
+    opacity: 92%;
 }
 
 .title{
@@ -144,7 +144,7 @@ div {
     top: 100px;
     font-size: 19px;
     text-align: left;
-    color:red;
+    color:#B22222;
 
 }
 
@@ -171,7 +171,7 @@ div {
     top: 200px;
     font-size: 19px;
     text-align: left;
-    color:red;
+    color:#B22222;
 }
 
 .email{
@@ -196,7 +196,7 @@ div {
     top: 300px;
     font-size: 19px;
     text-align: left;
-    color:red;
+    color:#B22222;
 
 }
 
@@ -222,7 +222,7 @@ div {
     top: 400px;
     font-size: 19px;
     text-align: left;
-    color:red;
+    color:#B22222;
 
 }
 
@@ -248,7 +248,7 @@ div {
     top: 500px;
     font-size: 16px;
     text-align: center;
-    color:red;
+    color:#B22222;
 
 }
 
@@ -260,7 +260,7 @@ div {
     top: 530px;
     border: 1px;
     border-radius: 10px;
-    background-color: red;
+    background-color: #B22222;
     font-weight: 600;
 }
 

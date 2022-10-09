@@ -78,13 +78,6 @@ def database(first_day, last_day, month):
         new_row.save()
 
 
-
-def convert(a):
-    it = iter(a)
-    res_dct = dict(zip(it, it))
-    return res_dct
-
-
 def dates_to_rent(id):
     car = Car.objects.get(pk=id)
     cars_dates = Car_availability.objects.filter(car__name=car.name)

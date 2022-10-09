@@ -42,7 +42,7 @@ body {
   
 a:hover{
 
-    color: rgb(226, 27, 27);
+    color:#B22222;
 }
   
 
@@ -137,7 +137,7 @@ div {
     width: 100%;
     height:80px;
     position: absolute;
-    color: rgb(226, 27, 27);
+    color:#B22222;
     text-align: center;
 } 
 
@@ -158,7 +158,7 @@ div {
     height:50px;
     position: absolute;
     background-color: #181819;
-    color:rgb(226, 27, 27) ;
+    color:#B22222 ;
     text-align: center;
     top: 400px;
     margin: 18px;
@@ -170,8 +170,8 @@ div {
     width: 140px;
     height:50px;
     position: absolute;
-    background-color:rgb(226, 27, 27);
-    color: #181819;
+    background-color:#B22222;
+    color: aliceblue;
     text-align: center;
     top: 400px;
     margin: 18px;
@@ -185,7 +185,7 @@ div {
     height:50px;
     position: absolute;
     background-color:#04fc84;
-    color: #181819;
+    color:#181819;
     text-align: center;
     top: 400px;
     margin: 18px;
@@ -240,7 +240,7 @@ div {
     left: 16%;
     margin: 10px;
     padding: 5px;
-    background-color: rgb(226, 27, 27);
+    background-color:#B22222;
     border: none;
     border-radius:5px;
 }
@@ -260,7 +260,7 @@ div {
     left: 16%;
     margin: 10px;
     padding: 5px;
-    background-color:rgb(226, 27, 27);
+    background-color:#B22222;
     color: #181819;
     border: none;
     border-radius:5px;
@@ -270,19 +270,20 @@ div {
     position: absolute;
     width: 24%;
     height: 50px;
-    background-color: yellow;
+    background-color:aliceblue;
     font-weight: 600; 
     border: none;
     top: 25%;
     left: 40%;
     border-radius: 5px;
     text-align: left;
+    color: #B22222;
 }
 
 select option {
     margin: 40px;
     font-size: 16px;
-    color: rgba(165, 50, 50, 0.3);
+    color: #B22222;
 }
 
 
@@ -320,5 +321,5 @@ select option {
 
 p::first-letter {
     font-size: 200%;
-    color: rgb(226, 27, 27);
+    color: #B22222;
   }

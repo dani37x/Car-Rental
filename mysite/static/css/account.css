@@ -31,7 +31,7 @@ div {
     position: absolute;
     top: 5%;
     left: 21%;
-    color: rgb(226, 27, 27);
+    color: 	#B22222;
     font-size: 50px;
     font-weight: 500;
 }
@@ -40,7 +40,7 @@ div {
     position: absolute;
     top: 0%;
     left: 11%;
-    color: rgb(226, 27, 27);
+    color: 	#B22222;
     font-size: 40px;
     text-align: center;
 }
@@ -66,7 +66,7 @@ div {
     position: absolute;
     right: 10%;
     top: 20%;
-    background-color: rgb(204, 20, 20);
+    background-color:	#B22222;
     border-radius: 10px;
     width: 20%;
     height: 10%;
@@ -129,7 +129,7 @@ div {
     position: absolute;
     right:  10%;
     top: 35%;
-    background-color:rgb(204, 20, 20);
+    background-color:	#B22222;
     border-radius: 10px;
     width: 60%;
     height: 10%;
@@ -148,7 +148,7 @@ div {
     position: absolute;
     right:  10%;
     top: 50%;
-    background-color:rgb(204, 20, 20);
+    background-color:	#B22222;
     border-radius: 10px;
     width: 85%;
     height: 10%;
@@ -169,7 +169,9 @@ div {
     position: absolute;
     right:  10%;
     top: 80%;
-    background-color:aliceblue;
+    /* color: #B22222; */
+    background-color:none;
+    border:  1px solid #B22222;
     border-radius: 10px;
     width: 85%;
     height: 10%;
@@ -236,12 +238,12 @@ div {
 }
   
 .gallery::-webkit-scrollbar-track {
-    background-color: #e4e4e4;
+    background-color: #B22222;
     border-radius: 100px;
 }
   
 .gallery::-webkit-scrollbar-thumb {
-    background-color: rgb(226, 27, 27);
+    background-color: 	aliceblue;
     border-radius: 100px;
 }
 
