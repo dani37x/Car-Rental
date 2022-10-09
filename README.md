@@ -19,7 +19,7 @@ Ultimately web is going to contain:
 *not yet:*
 
 - message board with opinions
-- flashing importing messagess
+- flashing important messagess
 - payments with recharging users accounts
 - better code organising in detail view, function.
 - custom email with reset password.
