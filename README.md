@@ -40,31 +40,43 @@ Ultimately web is going to contain:
 
 
 *REGISTER PAGE on 75% size*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759532-91fe2bcd-1b5d-420a-a6ee-a2eff64a1fb7.png)
+
 
 *LOGIN PAGE*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759546-3efdea5f-baa0-44a3-997a-b1983d46ef1b.png)
+
 
 *USER ACCOUNT*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759555-36fc7ac1-d2f8-4aa6-a50a-702e602c945b.png)
+
 
 *HOME PAGE*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759565-7a5b14c9-acd4-40ef-80bb-dd62b86ed63d.png)
+
 
 *GALLERY PAGE WITH PRODUCTS*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759586-7ecfb4bb-9468-4361-8d76-e7506a34b741.png)
+
 
 *INDIVIDUAL GENERATED PAGE FOR EVERY CAR WITH RESERVATION*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759596-d43e79d9-2482-43cd-8629-b537cdafb968.png)
+
 
 *PASSWORD RESET PAGE*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759614-c085d4bf-6fcc-4ce1-8d5f-b18374f32377.png)
+
 
 *PASSWORD RESET MESSAGE*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759638-3ac04185-672e-467b-821b-40c376f034a5.png)
+
 
 *PAGE WITH TOKEN TO SET PASSWORD*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759670-90fdd2fd-aaf8-43d7-a032-2681a0904951.png)
+
 
 *PASSWORD RESET CONFIRMATION WITH SUCCESS*
-image.png
+![image](https://user-images.githubusercontent.com/97913106/194759689-2e92bb46-8b85-468d-958a-038bd208fd6e.png)
+
+
+*Screens are cropped, not every contains everything*
