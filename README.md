@@ -27,18 +27,6 @@ Ultimately web is going to contain:
 - payment/buy confirmation
 
 
-
-**ICONS AND PHOTOS AUTHORS:**
-- https://icons8.com/icon/73/home
-- https://www.flaticon.com/free-icon/money_2704332?term=money&page=1&position=52&page=1&position=52&related_id=2704332&origin=tag
-- https://www.flaticon.com/free-icon/sport-car_1300302?term=car&page=1&position=65&page=1&position=65&related_id=1300302&origin=tag
-- Photo by Mike B: https://www.pexels.com/photo/blue-bmw-sedan-near-green-lawn-grass-170811/
-- Photo by Kelvin Valerio: https://www.pexels.com/photo/black-hyundai-suv-1519192/
-- Video by Taryn Elliott: https://www.pexels.com/video/luxury-sports-cars-passing-on-the-street-5309381/
-- https://www.freepik.com/free-photo/colorful-abstract-nebula-space-background_16263202.htm
-- Photo by Mike B: https://www.pexels.com/photo/gray-mercedez-benz-amg-112460/
-
-
 **PAGES**
 
 
@@ -83,3 +71,19 @@ Ultimately web is going to contain:
 
 
 *Screens are cropped, not every contains everything*
+
+
+
+
+
+
+
+**ICONS AND PHOTOS AUTHORS:**
+- https://icons8.com/icon/73/home
+- https://www.flaticon.com/free-icon/money_2704332?term=money&page=1&position=52&page=1&position=52&related_id=2704332&origin=tag
+- https://www.flaticon.com/free-icon/sport-car_1300302?term=car&page=1&position=65&page=1&position=65&related_id=1300302&origin=tag
+- Photo by Mike B: https://www.pexels.com/photo/blue-bmw-sedan-near-green-lawn-grass-170811/
+- Photo by Kelvin Valerio: https://www.pexels.com/photo/black-hyundai-suv-1519192/
+- Video by Taryn Elliott: https://www.pexels.com/video/luxury-sports-cars-passing-on-the-street-5309381/
+- https://www.freepik.com/free-photo/colorful-abstract-nebula-space-background_16263202.htm
+- Photo by Mike B: https://www.pexels.com/photo/gray-mercedez-benz-amg-112460/
