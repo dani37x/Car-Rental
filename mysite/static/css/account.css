@@ -233,16 +233,16 @@ div {
 
 
 
-.gallery::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 16px;
+    background-color: #B22222;
 }
   
-.gallery::-webkit-scrollbar-track {
-    background-color: #B22222;
+::-webkit-scrollbar-track {
     border-radius: 100px;
 }
   
-.gallery::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: 	aliceblue;
     border-radius: 100px;
 }

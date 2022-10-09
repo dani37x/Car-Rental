@@ -19,6 +19,9 @@ Ultimately web is going to contain:
 - flashing importing messagess
 - payments with recharging users accounts
 - better code organising in detail view, function.
+- custom email with reset password.
+- showing rented cars in account
+- payment/buy confirmation
 
 
 
@@ -31,3 +34,37 @@ Ultimately web is going to contain:
 - Video by Taryn Elliott: https://www.pexels.com/video/luxury-sports-cars-passing-on-the-street-5309381/
 - https://www.freepik.com/free-photo/colorful-abstract-nebula-space-background_16263202.htm
 - Photo by Mike B: https://www.pexels.com/photo/gray-mercedez-benz-amg-112460/
+
+
+**PAGES**
+
+
+*REGISTER PAGE on 75% size*
+image.png
+
+*LOGIN PAGE*
+image.png
+
+*USER ACCOUNT*
+image.png
+
+*HOME PAGE*
+image.png
+
+*GALLERY PAGE WITH PRODUCTS*
+image.png
+
+*INDIVIDUAL GENERATED PAGE FOR EVERY CAR WITH RESERVATION*
+image.png
+
+*PASSWORD RESET PAGE*
+image.png
+
+*PASSWORD RESET MESSAGE*
+image.png
+
+*PAGE WITH TOKEN TO SET PASSWORD*
+image.png
+
+*PASSWORD RESET CONFIRMATION WITH SUCCESS*
+image.png

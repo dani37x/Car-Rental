@@ -323,3 +323,17 @@ p::first-letter {
     font-size: 200%;
     color: #B22222;
   }
+
+::-webkit-scrollbar {
+    width: 16px;
+    background-color: #B22222;
+}
+  
+::-webkit-scrollbar-track {
+    border-radius: 100px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: 	aliceblue;
+    border-radius: 100px;
+}

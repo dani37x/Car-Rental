@@ -153,51 +153,16 @@ div {
     border-radius: 10px;
 }
 
-
-/* .image_big{
-    background-color: blue;
-    height: 400px;
-    width: 600px;
-    margin: 5px;
-    object-fit: cover;
-} */
-
-
-
-/* .image-grid{
-    top: 100px;
-    --gap: 24px;
-    --num-cols: 4;
-    --row-height: 300px;
-  
-    box-sizing: border-box;
-    padding: var(--gap);
-  
-    display: grid;
-    grid-template-columns: repeat(var(--num-cols), 1fr);
-    grid-auto-rows: var(--row-height);
-    gap: var(--gap);
+::-webkit-scrollbar {
+    width: 16px;
+    background-color: #B22222;
 }
   
-.image-grid > img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+::-webkit-scrollbar-track {
+    border-radius: 100px;
 }
   
-.image-grid-col-2{
-    grid-column: span 2;
+::-webkit-scrollbar-thumb {
+    background-color: 	aliceblue;
+    border-radius: 100px;
 }
-  
-.image-grid-row-2{
-    grid-row: span 2;
-}
-  
-  /* Anything udner 1024px 
-@media screen and (max-width: 1024px){
-    .image-grid {
-      --num-cols: 2;
-      --row-height: 200px;
-    }
-}
-   */

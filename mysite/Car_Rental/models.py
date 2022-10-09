@@ -18,7 +18,7 @@ class Details(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     model = models.CharField(max_length=100)
     car_type = models.CharField(max_length=100)
-    description = models.TextField(max_length=250)
+    description = models.TextField(max_length=550)
     price_for_day = models.IntegerField(default=100)
 
     
