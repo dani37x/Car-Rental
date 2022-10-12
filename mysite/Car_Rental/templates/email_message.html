@@ -1,0 +1,9 @@
+Hey, {{user}}
+
+
+Someone asked for password reset for email {{ email }}. If you did not do that, do not nothing!
+
+If you did that, follow the link below!:
+{{ protocol}}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
+
+Regards, {{site_name}} team.

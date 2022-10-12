@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
-from .functions import random_pass, allowed_password, days, database, dates, dates_to_rent
+from .functions import allowed_password, days, database, dates, dates_to_rent, check_availability, reservation
 from .models import Car, Details, User_profile, Car_availability
 from datetime import date, datetime
 
@@ -24,8 +24,21 @@ def account(request):
     user = User.objects.get( username = request.user.username)
     user_account = User_profile.objects.get( user = user)
     rented_cars = Car_availability.objects.filter( owner = user)
-    data = {'user' : user, 'user_account': user_account, 'rented_cars': rented_cars}
-    print(account)
+    photos_container = {}
+    used_photos = []
+    # today = date.today()
+    # today = today.strftime("%Y-%m-%d")
+    for car in rented_cars:
+        photo = Car.objects.get(name=car.car)
+        # day = car.date
+        # print(day)
+        if photo.photo.url not in used_photos:
+        # if photo.photo.url not in used_photos and str(day) >= today:
+            # print('heeeeeeeeeeeeeere',car.date)
+            photos_container[car] = photo.photo.url
+            used_photos.append(photo.photo.url)
+    print(photos_container)
+    data = {'user' : user, 'user_account': user_account, 'rented_cars': rented_cars, 'photos_container':photos_container}
     return render(request,'account.html', data)
 
 def gallery(request):
@@ -50,44 +63,27 @@ def detail(request, id):
         today = date.today()
         today = today.strftime("%Y-%m-%d")
         if dates(date_from=date_from, date_to=date_to, today=today) == False:
-            return redirect('detail', id = details.id)
+            print('WRONG DATES CHOICE')
+            return redirect('detail', id=id)
         days_difference = days( date_from=date_from, date_to=date_to)
         start_date = int(date_from[-2:])
         end_date = int(date_to[-2:])
         counter = 0
-        for day in range( start_date, end_date+1):
-            cars_access = Car_availability.objects.filter(car__name=cars.name)
-            for row in cars_access:
-                move_date = datetime.strptime(f'2022-10-{day}', "%Y-%m-%d").date()
-                if move_date == row.date and row.availability == True:
-                    counter += 1
-            if counter == days_difference:
-                print('CAR IS AVAILABLE!')
-        if counter != days_difference:          
-            print('SORRY CAR  IS NOW AVAILABLE')
-            return redirect('detail', id = details.id)
+        if check_availability( start_date=start_date,end_date=end_date,
+         days_difference=days_difference,counter=counter, cars=cars) == False:
+            return redirect('detail', id=id)
         price = days(date_to=date_from, date_from=date_to) * details.price_for_day*(-1) + details.price_for_day*2
-        print(price)
         profile = User.objects.get( username = request.user.username)
         account = User_profile.objects.get( user = profile)
         if account.money < price:
             print('Sorry, you dont have enough money')
-            return redirect('detail', id = details.id)
+            return redirect('detail', id=id)
         else:
-            for day in range( start_date, end_date+1):
-                cars_access = Car_availability.objects.filter(car__name=cars.name)
-                for row in cars_access:
-                    move_date = datetime.strptime(f'2022-10-{day}', "%Y-%m-%d").date()
-                    if move_date == row.date and row.availability == True:
-                        row.car = row.car
-                        row.date = move_date
-                        row.availability = False
-                        row.owner = profile
-                        row.save()
+            reservation( start_date=start_date, end_date=end_date, cars=cars, profile=profile)
         account.money = account.money - price
         account.save()
         print('YAY YOU RENTED A CAR!')
-        
+        return redirect('detail', id=id)
     return render(request,'detail.html', data)
 
 

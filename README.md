@@ -2,31 +2,30 @@
 
 *work in progress*
 
-Hey, I started learning Django from September currently year(2022) and I decided make something bigger and I did it. During less than two months I learned very many new thins. Still many after me, but I want improving
-my programming skills and knowledge to find first work in IT. This project it is web page with destiny to renting cars.
+Hey, I started learning Django in September currently year(2022). I learned/ I learn in my free time after work and when I have free time and I decided make something bigger and I did it. During less than two months I learned very many new thins. Still many after me, but I want improving
+my programming skills and knowledge to find first work in IT. This project is web page with destiny to renting cars.
 
 I wanted remind html/css and teach something new from this languagues and I did own styles and pages.
 
 Ultimately web is going to contain:
 - creating user account with generating secure password
 - system with reseting user's password 
-- login/logout
+- login/logout system
 - disparate cars reservation by different users in differents days
 - user account balance with products
 - adequate password's system for 2022 year
 - generating individual page for every car
-- 
+- better code organising in detail view, function.
+- showing rented cars in account
+- custom email with reset password.
+- payment/buy confirmation
+- when date to rent will expire, list of products will reduce
 *not yet:*
 
 - message board with opinions
 - flashing important messagess
 - payments with recharging users accounts
-- better code organising in detail view, function.
-- custom email with reset password.
-- showing rented cars in account
-- payment/buy confirmation
-
-
+- better code organising in account view, function.
 **PAGES**
 
 

@@ -40,7 +40,9 @@
         <div class="right">
             <span class="products"> your products...</span>
             <div class="gallery">
-
+                {% for key, photo in photos_container.items%}
+                    <img src="../static{{photo}}" class="image">
+                {% endfor %}
             </div>
         </div>
     </div>

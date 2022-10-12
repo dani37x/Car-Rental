@@ -9,6 +9,18 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <link rel="stylesheet" href="{% static 'css/detail.css' %}" media="screen">
+        <script>
+            function confirmAction() {
+                var date_from = document.getElementById("date_from").value;
+                var date_to = document.getElementById("date_to").value;
+                let confirmAction = confirm("Are you sure to rent {{cars.name}} from "+date_from+" to "+date_to);
+                if (confirmAction) {
+                alert("Action successfully executed");
+                } else {
+                alert("Action canceled");
+                }
+            }
+        </script>
     </head>
     <nav>
         <div id="nav">
@@ -47,23 +59,19 @@
                 <form method="post">
                     {% csrf_token %}
                     <span class="date_from_label">From </span>
-                    <input type="date" class="date_from" name="date_from">
+                    <input type="date" class="date_from" name="date_from" id="date_from">
                     <br>
                     <br>
                     <span class="date_to_label">To </span>
-                    <input type="date" class="date_to" name="date_to">
+                    <input type="date" class="date_to" name="date_to" id="date_to">
                     <select class="available_dates" size="1">
                         <option> AVAILABLE DATES</option>
                         {% for key, value in available_dates.items %}
                             <option> {{ value }}</option>
                         {% endfor %}
                     </select>
-                    <input type="submit" class="submit" value="RENT NOW">
-                    <!-- {% if availability.availability %} -->
-                        
-                    <!-- {% else %} -->
-                        <!-- <input type="submit" class="submit_not" value="RENTED" disabled> -->
-                    <!-- {% endif %} -->
+                    <input type="submit" class="submit" value="RENT NOW" onclick="confirmAction()">
+
                 </form>
             </div>
         </div>

@@ -82,12 +82,37 @@ def dates_to_rent(id):
     car = Car.objects.get(pk=id)
     cars_dates = Car_availability.objects.filter(car__name=car.name)
     dates_container = {}
-    for date in cars_dates:
-        if date.availability == True:
-            dates_container[date] = date.date 
+    today = date.today()
+    today = today.strftime("%Y-%m-%d")
+    for car in cars_dates:
+        if car.availability == True and str(car.date) >= today:
+            dates_container[car] = car.date 
         else:
             continue
     return dates_container
 
 
+def check_availability(start_date, end_date, days_difference, counter, cars):
+    for day in range(   start_date, end_date+1):
+        cars_access = Car_availability.objects.filter(car__name=cars.name)
+        for row in cars_access:
+            move_date = datetime.strptime(f'2022-10-{day}', "%Y-%m-%d").date()
+            if move_date == row.date and row.availability == True:
+                counter += 1
+        if counter == days_difference:
+            return True
+    if counter != days_difference:          
+        return False
 
+
+def reservation(start_date, end_date, cars, profile):
+    for day in range( start_date, end_date+1):
+        cars_access = Car_availability.objects.filter(car__name=cars.name)
+        for row in cars_access:
+            move_date = datetime.strptime(f'2022-10-{day}', "%Y-%m-%d").date()
+            if move_date == row.date and row.availability == True:
+                row.car = row.car
+                row.date = move_date
+                row.availability = False
+                row.owner = profile
+                row.save()
