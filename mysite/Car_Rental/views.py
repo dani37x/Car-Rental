@@ -3,10 +3,10 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .functions import allowed_password, days, database, dates, dates_to_rent, check_availability, reservation
 from .models import Car, Details, User_profile, Car_availability
 from datetime import date, datetime
-
 
 # @login_required(login_url='accounts/login/')
 def home(request):
@@ -63,7 +63,7 @@ def detail(request, id):
         today = date.today()
         today = today.strftime("%Y-%m-%d")
         if dates(date_from=date_from, date_to=date_to, today=today) == False:
-            print('WRONG DATES CHOICE')
+            messages.add_message(request, messages.ERROR, '[ERROR] WRONG DATES CHOICE')
             return redirect('detail', id=id)
         days_difference = days( date_from=date_from, date_to=date_to)
         start_date = int(date_from[-2:])
@@ -77,12 +77,13 @@ def detail(request, id):
         account = User_profile.objects.get( user = profile)
         if account.money < price:
             print('Sorry, you dont have enough money')
+            messages.add_message(request, messages.ERROR, '[ERROR] NOT ENOUGH MONEY')
             return redirect('detail', id=id)
         else:
             reservation( start_date=start_date, end_date=end_date, cars=cars, profile=profile)
         account.money = account.money - price
         account.save()
-        print('YAY YOU RENTED A CAR!')
+        messages.add_message(request, messages.INFO, f'CONGRATULATIONS, YOU HAVE JUST RENTED THE {cars.name}')
         return redirect('detail', id=id)
     return render(request,'detail.html', data)
 
@@ -102,15 +103,15 @@ def register(request):
                 email_db = None  
             if username_db == None and email_db == None:
                 User.objects.create_user(username, email, password)
-                print('created')
                 account = User.objects.get(username=username)
                 user_profile = User_profile(user=account)
                 user_profile.save()
                 return redirect('log_to_account')
             else:
-                print('username or email already exists in our database')
+                messages.add_message(request, messages.ERROR, '[ERROR]  THIS USERNAME OR EMAIL ALREADY EXISTS IN OUR DATABASE')
                 return redirect('register')
         else:
+            messages.add_message(request, messages.ERROR, '[ERROR]  PASSWORD MUST HAVE CONTAINS AT LEAST 6 CHARACTERS WITH SPECIAL CHAR, NUMBER AND BIG CHAR. PASSWORD MUST BE EQUAL TO SECOND PASSWORD')
             return redirect('register')
     return render(request, 'register.html')
 
@@ -119,11 +120,12 @@ def log_to_account(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        print(username, password)
         user = authenticate(username=username, password=password)
-        login(request, user)
-        print('goood log')
-        return redirect('account')
+        if login(request, user):
+            return redirect('account')
+        else:
+            messages.add_message(request, messages.ERROR, '[ERROR]  WRONG EMAIL OR PASSWORD')
+            return redirect('log_to_account')
     return render(request,'login.html')
 
 

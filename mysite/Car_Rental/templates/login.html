@@ -22,6 +22,15 @@
                 </div>
             </div>
         </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        {% if messages %}
+            {% for message in messages %}
+                <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </div>
+            {% endfor %}
+        {% endif %} 
 	<div id="wrapper">
         <div class="card">
             <span class="title">

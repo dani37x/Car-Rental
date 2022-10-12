@@ -3,7 +3,7 @@ import string
 from datetime import date, datetime
 from .models import Car_availability, Car
 from django.contrib.auth.models import User
-
+from django.contrib import messages
 
 def random_pass():
     small = string.ascii_lowercase
@@ -19,7 +19,6 @@ def random_pass():
 
 def allowed_password(password, password_2):
     if len(password) < int(6):
-        print('password is too short')
         return False
     if password == password_2:
         print('p1 == p2')

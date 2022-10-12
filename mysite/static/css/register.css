@@ -5,6 +5,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    font-weight: 600;
+    margin: 0px;
 
 }
 
@@ -13,15 +15,12 @@ body {
     width: 100%;
     height: 50px;
     margin: 2% auto;
-    /* overflow: hidden; */
-    /* position: fixed; */
-    
 }
 
 .topnav {
 
     background-color: none;
-    /* position: relative; */
+
     width: 80%;
     left: 10%;
     height: 50px;
@@ -264,11 +263,6 @@ div {
     font-weight: 600;
 }
 
-/* form {
-    background-color: aliceblue;
-    text-align: center;
-} */
-
 a{
     color:white;
     text-decoration: none;
@@ -287,4 +281,13 @@ a{
 ::-webkit-scrollbar-thumb {
     background-color: 	aliceblue;
     border-radius: 100px;
+}
+
+.error{
+    width: 100%;
+    height: auto;
+    background-color: #ff605c;
+    color: aliceblue;
+    text-align: center;
+    font-size: 25px;
 }

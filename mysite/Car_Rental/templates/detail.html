@@ -35,7 +35,16 @@
         </div>
     </nav> 
 	<div id="wrapper">
+        <br>
+        <br>
+        <br>
+        {% if messages %}
+            {% for message in messages %}
+                <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </div>
+            {% endfor %}
+        {% endif %} 
         <div class="menu">
+
             <div class="name">
                 <h1> {{cars.name}}</h1>
             </div>
