@@ -17,6 +17,10 @@ urlpatterns = [
     path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name="password_reset_done.html"), name="password_reset_done"),
     path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name="password_reset_confirm"),
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name="password_reset_complete"),
+    # path('config', views.stripe_config),
+    path('create-checkout-session', views.create_checkout_session, name='create_checkout_session'),
+    path('payment/success', views.success, name='success'),
+    # path('payment/cancel/', views.cancel, name='cancel'),
 ]
 
 handler404 = views.error_404

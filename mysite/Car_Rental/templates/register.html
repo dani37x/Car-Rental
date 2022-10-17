@@ -9,6 +9,12 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}" media="screen">
+        <script>
+            setTimeout(() => {
+            const box = document.getElementById('hide');
+            box.style.display = 'none';
+            }, 7000);
+        </script>
     </head>
 	<body>
         <nav>
@@ -29,7 +35,7 @@
         <br>
         {% if messages %}
             {% for message in messages %}
-                <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </div>
+                <div id="hide" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </div>
             {% endfor %}
         {% endif %} 
 	<div id="wrapper">
@@ -40,13 +46,13 @@
             <form method="post" >
                 {% csrf_token %}
                 <span class="username_label"> Enter username</span> <br>
-                <input type="text" class="username" name="username">
+                <input type="text" class="username" name="username" required>
                 <span class="email_label"> Enter your email</span>
-                <input type="email" class="email" name="email">
+                <input type="email" class="email" name="email" required>
                 <span class="password_1_label"> Create new password </span>
-                <input type="password" class="password_1" name="password_1">
+                <input type="password" class="password_1" name="password_1" required>
                 <span class="password_2_label"> Repeat your password </span>
-                <input type="password" class="password_2" name="password_2">
+                <input type="password" class="password_2" name="password_2" required>
                 <span class="account"> Have you already account? <a href="/accounts/login">click here </a></span>
                 <input type="submit" class="button" value="sing in">
             </form>

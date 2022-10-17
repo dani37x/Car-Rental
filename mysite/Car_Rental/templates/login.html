@@ -9,6 +9,12 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <link rel="stylesheet"  type="text/css" href="{% static 'css/login.css' %}" media="screen">
+        <script>
+            setTimeout(() => {
+            const box = document.getElementById('hide');
+            box.style.display = 'none';
+            }, 7000);
+        </script>
     </head>
 	<body>
         <nav>
@@ -28,7 +34,7 @@
         <br>
         {% if messages %}
             {% for message in messages %}
-                <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </div>
+                <div id="hide" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </div>
             {% endfor %}
         {% endif %} 
 	<div id="wrapper">
@@ -39,9 +45,9 @@
             <form method="post">
                 {% csrf_token %}
                 <span class="username_label"> Enter your username</span> <br>
-                <input type="text" class="username" name="username">
+                <input type="text" class="username" name="username" required>
                 <span class="password_label"> Enter your password</span>
-                <input type="password" class="password" name="password">
+                <input type="password" class="password" name="password" required>
                 <span class="account"> You don't have account yet? <a href="/accounts/register"> Click here </a></span>
                 <span class="remember"> You don't remember password?<a href="/accounts/password_reset"> Click here </a></span>
                 <input type="submit" class="button" value="Login">

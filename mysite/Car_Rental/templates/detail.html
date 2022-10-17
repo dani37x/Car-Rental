@@ -20,6 +20,10 @@
                 alert("Action canceled");
                 }
             }
+            setTimeout(() => {
+            const box = document.getElementById('hide');
+            box.style.display = 'none';
+            }, 7000);
         </script>
     </head>
     <nav>
@@ -40,7 +44,7 @@
         <br>
         {% if messages %}
             {% for message in messages %}
-                <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </div>
+                <div id="hide" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </div>
             {% endfor %}
         {% endif %} 
         <div class="menu">

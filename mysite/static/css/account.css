@@ -75,9 +75,11 @@ div {
 .plus{
     position: absolute;
     left: 25%;
-    top: -28%;
+    top: -10%;
     color: white;
-    font-size: 70px;
+    font-size: 50px;
+    background: none;
+    border: none;
 }
 .balance{
     position: absolute;

@@ -7,6 +7,10 @@ from django.contrib import messages
 from .functions import allowed_password, days, database, dates, dates_to_rent, check_availability, reservation
 from .models import Car, Details, User_profile, Car_availability
 from datetime import date, datetime
+from django.conf import settings 
+from django.http.response import JsonResponse 
+from django.views.decorators.csrf import csrf_exempt 
+import stripe
 
 # @login_required(login_url='accounts/login/')
 def home(request):
@@ -39,6 +43,8 @@ def account(request):
             used_photos.append(photo.photo.url)
     print(photos_container)
     data = {'user' : user, 'user_account': user_account, 'rented_cars': rented_cars, 'photos_container':photos_container}
+    if request.method == 'POST':
+        return redirect('create_checkout_session')
     return render(request,'account.html', data)
 
 def gallery(request):
@@ -71,19 +77,19 @@ def detail(request, id):
         counter = 0
         if check_availability( start_date=start_date,end_date=end_date,
          days_difference=days_difference,counter=counter, cars=cars) == False:
+            messages.add_message(request, messages.ERROR, f'[ERROR] {str(cars.name).upper()} IS NOT AVAILABLE BETWEEN THESE DATES')
             return redirect('detail', id=id)
         price = days(date_to=date_from, date_from=date_to) * details.price_for_day*(-1) + details.price_for_day*2
         profile = User.objects.get( username = request.user.username)
         account = User_profile.objects.get( user = profile)
         if account.money < price:
-            print('Sorry, you dont have enough money')
             messages.add_message(request, messages.ERROR, '[ERROR] NOT ENOUGH MONEY')
             return redirect('detail', id=id)
         else:
             reservation( start_date=start_date, end_date=end_date, cars=cars, profile=profile)
         account.money = account.money - price
         account.save()
-        messages.add_message(request, messages.INFO, f'CONGRATULATIONS, YOU HAVE JUST RENTED THE {cars.name}')
+        messages.add_message(request, messages.INFO, f'CONGRATULATIONS, YOU HAVE JUST RENTED THE {str(cars.name).upper()}')
         return redirect('detail', id=id)
     return render(request,'detail.html', data)
 
@@ -121,10 +127,11 @@ def log_to_account(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
-        if login(request, user):
+        if user != None and user != '':
+            login(request, user)
             return redirect('account')
         else:
-            messages.add_message(request, messages.ERROR, '[ERROR]  WRONG EMAIL OR PASSWORD')
+            messages.add_message(request, messages.ERROR, '[ERROR]  WRONG USERNAME OR PASSWORD')
             return redirect('log_to_account')
     return render(request,'login.html')
 
@@ -141,6 +148,47 @@ def error_404(request, exception):
 def error_500(request):
     context = {}
     return render(request,'500.html', context)
+
+
+# @csrf_exempt
+# def stripe_config(request):
+#     if request.method == 'GET':
+#         stripe_config = {'publicKey': settings.STRIPE_PUBLISHABLE_KEY}
+#         return JsonResponse(stripe_config, safe=False)
+
+
+@csrf_exempt
+def create_checkout_session(request):
+    if request.method == 'GET':
+        domain_url = 'http://localhost:8000/'
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        try:
+            checkout_session = stripe.checkout.Session.create(
+                success_url=domain_url + 'payment/success?session_id={CHECKOUT_SESSION_ID}',
+                # success_url=domain_url + 'account/',
+                cancel_url=domain_url + 'account/',
+                payment_method_types=['card'],
+                mode='payment',
+                line_items=[{'price': 'price_1Lssz8KeFWJsokaSPwrKguHw', 'quantity': '1'}],
+            )
+            return redirect(checkout_session.url, code=303)
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+
+def success(request):
+    user = User.objects.get( username = request.user.username)
+    user_account = User_profile.objects.get( user = user)
+    user_account.money += 100
+    user_account.save()
+    data = {'user':user}
+    # session = stripe.checkout.Session.retrieve(request('session_id'))
+    # customer = stripe.Customer.retrieve(session.customer)
+    # data = {'customer':customer}
+    return render(request,'success.html', data)
+
+
+# def cancel(request):
+#     return render(request,'cancel.html')
 
 # def forgot_password(request):
 #     if request.method == 'POST':

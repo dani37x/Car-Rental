@@ -15,16 +15,16 @@ Ultimately web is going to contain:
 - user account balance with products
 - adequate password's system for 2022 year
 - generating individual page for every car
-- better code organising in detail view, function.
 - showing rented cars in account
 - custom email with reset password.
 - payment/buy confirmation
 - when date to rent will expire, list of products will reduce
-*not yet:*
-
-- message board with opinions
 - flashing important messagess
 - payments with recharging users accounts
+
+* *not yet:*
+
+- message board with opinions
 - better code organising in account view, function.
 **PAGES**
 
