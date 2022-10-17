@@ -165,7 +165,6 @@ def create_checkout_session(request):
         try:
             checkout_session = stripe.checkout.Session.create(
                 success_url=domain_url + 'payment/success?session_id={CHECKOUT_SESSION_ID}',
-                # success_url=domain_url + 'account/',
                 cancel_url=domain_url + 'account/',
                 payment_method_types=['card'],
                 mode='payment',
@@ -181,14 +180,8 @@ def success(request):
     user_account.money += 100
     user_account.save()
     data = {'user':user}
-    # session = stripe.checkout.Session.retrieve(request('session_id'))
-    # customer = stripe.Customer.retrieve(session.customer)
-    # data = {'customer':customer}
     return render(request,'success.html', data)
 
-
-# def cancel(request):
-#     return render(request,'cancel.html')
 
 # def forgot_password(request):
 #     if request.method == 'POST':

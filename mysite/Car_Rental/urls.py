@@ -20,7 +20,6 @@ urlpatterns = [
     # path('config', views.stripe_config),
     path('create-checkout-session', views.create_checkout_session, name='create_checkout_session'),
     path('payment/success', views.success, name='success'),
-    # path('payment/cancel/', views.cancel, name='cancel'),
 ]
 
 handler404 = views.error_404

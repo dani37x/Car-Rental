@@ -1,4 +1,4 @@
-# Car-Rental
+# Car-Rental Fullstack app
 
 *work in progress*
 
@@ -73,8 +73,8 @@ Ultimately web is going to contain:
 
 
 
-
-
+**GET OWN API KEY FROM:**
+* https://stripe.com/en-pl
 
 
 **ICONS AND PHOTOS AUTHORS:**
