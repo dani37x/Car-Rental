@@ -40,6 +40,9 @@ Ultimately web is going to contain:
 *USER ACCOUNT*
 ![image](https://user-images.githubusercontent.com/97913106/194759555-36fc7ac1-d2f8-4aa6-a50a-702e602c945b.png)
 
+*PAYMENT SESSION*
+![image](https://user-images.githubusercontent.com/97913106/196127191-783ce8c1-2e78-4742-a73e-c93124e3ce37.png)
+
 
 *HOME PAGE*
 ![image](https://user-images.githubusercontent.com/97913106/194759565-7a5b14c9-acd4-40ef-80bb-dd62b86ed63d.png)
