@@ -1,11 +1,6 @@
 # Car-Rental Fullstack app
 
-*work in progress*
 
-Hey, I started learning Django in September currently year(2022). I learned/ I learn in my free time after work and when I have free time and I decided make something bigger and I did it. During less than two months I learned very many new thins. Still many after me, but I want improving
-my programming skills and knowledge to find first work in IT. This project is web page with destiny to renting cars.
-
-I wanted remind html/css and teach something new from this languagues and I did own styles and pages.
 
 Ultimately web is going to contain:
 - creating user account with generating secure password
