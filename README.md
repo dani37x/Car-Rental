@@ -17,10 +17,6 @@ Ultimately web is going to contain:
 - flashing important messagess
 - payments with recharging users accounts
 
-* *not yet:*
-
-- message board with opinions
-- better code organising in account view, function.
 **PAGES**
 
 
