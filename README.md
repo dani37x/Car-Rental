@@ -70,7 +70,7 @@ Ultimately web is going to contain:
 **GET OWN API KEY FROM:**
 * https://stripe.com/en-pl
 * https://mailtrap.io/
-* 
+
 
 
 **ICONS AND PHOTOS AUTHORS:**
